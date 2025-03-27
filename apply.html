@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>申し込みフォーム | バンクオブジョージア サポート</title>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            padding: 20px; 
+            max-width: 600px; 
+            margin: auto; 
+            line-height: 1.8; 
+        }
+        h1 { 
+            color: #222; 
+            text-align: center;
+        }
+        label { 
+            display: block; 
+            margin-top: 15px; 
+        }
+        input, select, textarea { 
+            width: 100%; 
+            padding: 8px; 
+            margin-top: 5px; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button { 
+            margin: 20px auto 0; 
+            padding: 15px 80px; 
+            background: #222; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 18px;
+            display: block;
+        }
+        button:hover { 
+            background: #444; 
+        }
+        a.back { 
+            display: block; 
+            margin-top: 20px; 
+            padding: 10px;
+            color: #222; 
+            text-decoration: none; 
+            text-align: center;
+            font-size: 16px;
+        }
+        a.back:hover { 
+            text-decoration: underline; 
+        }
+        .description {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>サポートサービス申し込み</h1>
+    
+    <div class="description">
+        <p>下記フォームにご記入の上、送信してください。</p>
+        <p>内容を確認のうえ、スタッフよりご連絡いたします。</p>
+    </div>
+    
+    <form name="support" method="POST" data-netlify="true" action="/thanks.html">
+        <input type="hidden" name="form-name" value="support">
+        
+        <label>お名前: <input type="text" name="name" required></label>
+        
+        <label>メールアドレス: <input type="email" name="email" required></label>
+        
+        <label>口座タイプ:
+            <select name="account_type">
+                <option value="solo">SOLO口座</option>
+                <option value="non_solo">SOLO口座以外</option>
+            </select>
+        </label>
+        
+        <label>ご希望のプラン:
+            <select name="plan">
+                <option value="standard">スタンダードプラン</option>
+                <option value="gold">ゴールドプラン</option>
+                <option value="single">一般サポート（単発）</option>
+            </select>
+        </label>
+        
+        <label>ご相談内容:
+            <textarea name="message" rows="5"></textarea>
+        </label>
+        
+        <button type="submit">送信</button>
+    </form>
+    
+    <a href="index.html" class="back">← トップページに戻る</a>
+
+    <script>
+        // URL パラメータからプランを取得して自動選択する
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const plan = urlParams.get('plan');
+            
+            if (plan) {
+                const planSelect = document.querySelector('select[name="plan"]');
+                if (planSelect) {
+                    for (let i = 0; i < planSelect.options.length; i++) {
+                        if (planSelect.options[i].value === plan) {
+                            planSelect.selectedIndex = i;
+                            break;
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+</body>
+</html>
