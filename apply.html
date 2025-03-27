@@ -79,13 +79,30 @@
             </select>
         </label>
         
-        <label>ご希望のプラン:
-            <select name="plan">
+        <div class="form-group">
+            <label for="plan">申し込みプラン</label>
+            <select name="plan" id="plan" required onchange="toggleServiceSelection()">
+                <option value="">選択してください</option>
                 <option value="standard">スタンダードプラン</option>
                 <option value="gold">ゴールドプラン</option>
-                <option value="single">一般サポート（単発）</option>
+                <option value="single">一般サポート</option>
             </select>
-        </label>
+        </div>
+        
+        <div class="form-group" id="serviceSelection" style="display: none;">
+            <label for="service">依頼内容</label>
+            <select name="service" id="service">
+                <option value="">選択してください</option>
+                <option value="debit_card">デビットカード関連</option>
+                <option value="transfer_issue">送金トラブル</option>
+                <option value="credentials">ユーザID/PASSWORDの再発行</option>
+                <option value="card_unlock">デビットカードのロック解除</option>
+                <option value="account_unlock">口座のロック解除</option>
+                <option value="kyc">KYCの更新</option>
+                <option value="system_trouble">システムトラブルの解決</option>
+                <option value="other">その他</option>
+            </select>
+        </div>
         
         <label>ご相談内容:
             <textarea name="message" rows="5"></textarea>
@@ -99,12 +116,15 @@
     <script>
         // URL パラメータからプランを取得して自動選択する
         window.onload = function() {
+            // Get URL parameters
             const urlParams = new URLSearchParams(window.location.search);
             const plan = urlParams.get('plan');
             
+            // Set selected plan based on URL parameter
             if (plan) {
-                const planSelect = document.querySelector('select[name="plan"]');
+                const planSelect = document.getElementById('plan');
                 if (planSelect) {
+                    // Try to find and select the option
                     for (let i = 0; i < planSelect.options.length; i++) {
                         if (planSelect.options[i].value === plan) {
                             planSelect.selectedIndex = i;
@@ -112,8 +132,22 @@
                         }
                     }
                 }
+                
+                // Show/hide service selection based on plan
+                toggleServiceSelection();
             }
         };
+        
+        function toggleServiceSelection() {
+            const planSelect = document.getElementById('plan');
+            const serviceSelectionDiv = document.getElementById('serviceSelection');
+            
+            if (planSelect.value === 'single') {
+                serviceSelectionDiv.style.display = 'block';
+            } else {
+                serviceSelectionDiv.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
