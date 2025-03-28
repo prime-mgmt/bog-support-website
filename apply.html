@@ -65,7 +65,7 @@
         <p>内容を確認のうえ、スタッフよりご連絡いたします。</p>
     </div>
     
-    <form action="/thanks.html" method="POST" data-netlify="true" name="support-application" netlify-honeypot="bot-field">
+    <form action="/thanks.html" method="POST" data-netlify="true" name="support-application" netlify-honeypot="bot-field" data-netlify-recaptcha="true">
         <p class="hidden" style="display: none;">
             <label>Don't fill this out if you're human: <input name="bot-field" /></label>
         </p>
@@ -111,11 +111,15 @@
             <textarea name="message" rows="5"></textarea>
         </label>
         
-        <div class="form-group">
+        <div class="form-group" style="text-align: center;">
             <label>
                 <input type="checkbox" name="terms" required> 
                 <a href="terms.html" target="_blank" style="color: #0053a0;">利用規約</a>に同意します
             </label>
+        </div>
+        
+        <div class="form-group" style="margin: 20px 0; text-align: center;">
+            <div data-netlify-recaptcha="true"></div>
         </div>
         
         <button type="submit">申し込む</button>
