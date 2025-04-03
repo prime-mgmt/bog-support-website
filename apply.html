@@ -92,14 +92,6 @@
             </select>
         </div>
         
-        <div class="form-group" id="planDurationSelection" style="display: none;">
-            <label for="plan_duration">プラン期間</label>
-            <select name="plan_duration" id="plan_duration">
-                <option value="annual">年間サポートプラン</option>
-                <option value="monthly">月間サポートプラン</option>
-            </select>
-        </div>
-        
         <div class="form-group" id="serviceSelection" style="display: none;">
             <label for="service">依頼内容</label>
             <select name="service" id="service">
@@ -155,7 +147,7 @@
                     }
                 }
                 
-                // Show/hide appropriate selections based on plan
+                // Show/hide service selection based on plan
                 toggleSelections();
             }
         };
@@ -163,18 +155,12 @@
         function toggleSelections() {
             const planSelect = document.getElementById('plan');
             const serviceSelectionDiv = document.getElementById('serviceSelection');
-            const planDurationDiv = document.getElementById('planDurationSelection');
             
             // Show/hide service selection based on plan
             if (planSelect.value === 'single') {
                 serviceSelectionDiv.style.display = 'block';
-                planDurationDiv.style.display = 'none';
-            } else if (planSelect.value === 'standard' || planSelect.value === 'gold') {
-                serviceSelectionDiv.style.display = 'none';
-                planDurationDiv.style.display = 'block';
             } else {
                 serviceSelectionDiv.style.display = 'none';
-                planDurationDiv.style.display = 'none';
             }
         }
     </script>
