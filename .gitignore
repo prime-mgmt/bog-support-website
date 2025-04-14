@@ -1,4 +1,5 @@
 # ignore mail folder
 mail
 
-
+# ignore .DS_store
+.DS_Store
