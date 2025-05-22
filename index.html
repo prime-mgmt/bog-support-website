@@ -1,557 +1,549 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>バンクオブジョージア 口座トラブルサポート</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
-        
-        :root {
-            --primary-color: #0053a0;
-            --secondary-color: #DAA520;
-            --accent-color: #e74c3c;
-            --light-bg: #f8f9fa;
-            --dark-text: #333;
-            --light-text: #777;
-            --border-color: #eaeaea;
-            --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            --highlight-shadow: 0 12px 40px rgba(218, 165, 32, 0.15);
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+:root {
+  --primary-color: #0053a0;
+  --secondary-color: #DAA520;
+  --accent-color: #e74c3c;
+  --light-bg: #f8f9fa;
+  --dark-text: #333;
+  --light-text: #777;
+  --border-color: #eaeaea;
+  --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --highlight-shadow: 0 12px 40px rgba(218, 165, 32, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
         body { 
-            font-family: 'Noto Sans JP', sans-serif;
-            padding: 40px 20px; 
-            max-width: 1100px; 
-            margin: auto; 
-            line-height: 1.8;
-            color: var(--dark-text);
-            background: var(--light-bg);
+          font-family: 'Noto Sans JP', sans-serif;
+          padding: 40px 20px; 
+          max-width: 1100px; 
+          margin: auto; 
+          line-height: 1.8;
+          color: var(--dark-text);
+          background: var(--light-bg);
         }
-        
+
         h1, h2 { 
-            color: var(--primary-color); 
-            text-align: center;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
+          color: var(--primary-color); 
+          text-align: center;
+          margin-bottom: 1.5rem;
+          letter-spacing: -0.02em;
         }
-        
+
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            font-weight: 700;
+          font-size: 2.2rem;
+          margin-bottom: 2rem;
+          font-weight: 700;
         }
-        
+
         h2 {
-            font-size: 1.8rem;
-            position: relative;
-            padding-bottom: 15px;
+          font-size: 1.8rem;
+          position: relative;
+          padding-bottom: 15px;
         }
-        
+
         h2:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--primary-color);
-            border-radius: 3px;
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 3px;
+          background: var(--primary-color);
+          border-radius: 3px;
         }
-        
+
         .intro-text {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            font-size: 1.1rem;
-            line-height: 1.8;
+          text-align: center;
+          max-width: 800px;
+          margin: 0 auto 40px;
+          font-size: 1.1rem;
+          line-height: 1.8;
         }
-        
+
         .section {
-            margin: 60px 0;
-            padding: 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          margin: 60px 0;
+          padding: 20px;
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .highlight {
-            color: var(--accent-color);
-            font-weight: 500;
+          color: var(--accent-color);
+          font-weight: 500;
         }
-        
+
         .note {
-            margin-top: 40px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.03);
-            border-radius: 8px;
-            font-size: 0.95rem;
+          margin-top: 40px;
+          padding: 20px;
+          background: rgba(0, 0, 0, 0.03);
+          border-radius: 8px;
+          font-size: 0.95rem;
         }
-        
+
         .center-text {
-            text-align: center;
+          text-align: center;
         }
-        
+
         .apply-section {
-            margin-top: 60px;
-            text-align: center;
-            padding: 40px 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          margin-top: 60px;
+          text-align: center;
+          padding: 40px 20px;
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .apply-section p {
-            margin-bottom: 12px;
-            font-size: 1.1rem;
+          margin-bottom: 12px;
+          font-size: 1.1rem;
         }
-        
+
         a.button {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 16px 80px;
-            background: linear-gradient(135deg, var(--primary-color), #0066cc);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: 500;
-            box-shadow: 0 4px 15px rgba(0, 83, 160, 0.3);
-            transition: all 0.3s ease;
+          display: inline-block;
+          margin-top: 25px;
+          padding: 16px 80px;
+          background: linear-gradient(135deg, var(--primary-color), #0066cc);
+          color: white;
+          text-decoration: none;
+          border-radius: 8px;
+          font-size: 18px;
+          font-weight: 500;
+          box-shadow: 0 4px 15px rgba(0, 83, 160, 0.3);
+          transition: all 0.3s ease;
         }
-        
+
         a.button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 83, 160, 0.4);
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(0, 83, 160, 0.4);
         }
-        
+
         a.plan-button {
-            display: inline-block;
-            margin: 20px auto 0;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, var(--primary-color), #0066cc);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 500;
-            width: 80%;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 83, 160, 0.2);
-            transition: all 0.3s ease;
+          display: inline-block;
+          margin: 20px auto 0;
+          padding: 12px 30px;
+          background: linear-gradient(135deg, var(--primary-color), #0066cc);
+          color: white;
+          text-decoration: none;
+          border-radius: 8px;
+          font-size: 16px;
+          font-weight: 500;
+          width: 80%;
+          text-align: center;
+          box-shadow: 0 4px 10px rgba(0, 83, 160, 0.2);
+          transition: all 0.3s ease;
         }
-        
+
         a.plan-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 83, 160, 0.3);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 15px rgba(0, 83, 160, 0.3);
         }
-        
+
         /* Pricing Cards Styling */
         .pricing-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 50px 0 30px;
-            gap: 25px;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          margin: 50px 0 30px;
+          gap: 25px;
         }
-        
+
         .pricing-card {
-            flex: 1;
-            min-width: 300px;
-            border-radius: 12px;
-            padding: 35px 25px;
-            box-shadow: var(--card-shadow);
-            display: flex;
-            flex-direction: column;
-            background: white;
-            position: relative;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
+          flex: 1;
+          min-width: 300px;
+          border-radius: 12px;
+          padding: 35px 25px;
+          box-shadow: var(--card-shadow);
+          display: flex;
+          flex-direction: column;
+          background: white;
+          position: relative;
+          transition: all 0.3s ease;
+          border: 1px solid var(--border-color);
+          overflow: hidden;
         }
-        
+
         .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+          transform: translateY(-5px);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
-        
+
         .pricing-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: #ddd;
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 8px;
+          background: #ddd;
         }
-        
+
         .pricing-card.standard::before {
-            background: linear-gradient(90deg, #0053a0, #0077ea);
+          background: linear-gradient(90deg, #0053a0, #0077ea);
         }
-        
+
         .pricing-card.popular {
-            box-shadow: var(--highlight-shadow);
-            border: none;
-            z-index: 2;
-            transform: scale(1.03);
+          box-shadow: var(--highlight-shadow);
+          border: none;
+          z-index: 2;
+          transform: scale(1.03);
         }
-        
+
         .pricing-card.popular:hover {
-            transform: scale(1.03) translateY(-5px);
+          transform: scale(1.03) translateY(-5px);
         }
-        
+
         .pricing-card.popular::before {
-            background: linear-gradient(90deg, #c0932b, var(--secondary-color));
-            height: 10px;
+          background: linear-gradient(90deg, #c0932b, var(--secondary-color));
+          height: 10px;
         }
-        
+
         .pricing-card.general::before {
-            background: linear-gradient(90deg, #5e5e5e, #888);
+          background: linear-gradient(90deg, #5e5e5e, #888);
         }
-        
+
         .popular-badge {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            overflow: hidden;
-            width: 100px;
-            height: 100px;
-            z-index: 1;
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          overflow: hidden;
+          width: 100px;
+          height: 100px;
+          z-index: 1;
         }
-        
+
         .popular-badge span {
-            position: absolute;
-            display: block;
-            width: 150px;
-            padding: 6px 0;
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            font-size: 13px;
-            font-weight: bold;
-            box-shadow: 0 5px 10px rgba(0,0,0,.1);
-            right: -38px;
-            top: 24px;
-            transform: rotate(45deg);
+          position: absolute;
+          display: block;
+          width: 150px;
+          padding: 6px 0;
+          background-color: var(--secondary-color);
+          color: white;
+          text-align: center;
+          font-size: 13px;
+          font-weight: bold;
+          box-shadow: 0 5px 10px rgba(0,0,0,.1);
+          right: -38px;
+          top: 24px;
+          transform: rotate(45deg);
         }
-        
+
         .pricing-card h3 {
-            font-size: 1.7rem;
-            margin: 10px 0 20px;
-            text-align: center;
-            color: var(--primary-color);
-            position: relative;
-            padding-bottom: 15px;
+          font-size: 1.7rem;
+          margin: 10px 0 20px;
+          text-align: center;
+          color: var(--primary-color);
+          position: relative;
+          padding-bottom: 15px;
         }
-        
+
         .pricing-card h3::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 2px;
-            background: currentColor;
-            opacity: 0.3;
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 40px;
+          height: 2px;
+          background: currentColor;
+          opacity: 0.3;
         }
-        
+
         .pricing-card.popular h3 {
-            color: var(--secondary-color);
+          color: var(--secondary-color);
         }
-        
+
         .price {
-            font-size: 2.6rem;
-            font-weight: 700;
-            text-align: center;
-            margin: 5px 0;
-            color: var(--dark-text);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+          font-size: 2.6rem;
+          font-weight: 700;
+          text-align: center;
+          margin: 5px 0;
+          color: var(--dark-text);
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
-        
+
         .currency {
-            font-size: 1.6rem;
-            margin-right: 5px;
-            align-self: flex-start;
-            margin-top: 8px;
+          font-size: 1.6rem;
+          margin-right: 5px;
+          align-self: flex-start;
+          margin-top: 8px;
         }
-        
+
         .price-detail {
-            text-align: center;
-            color: var(--light-text);
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-            padding: 4px 10px;
-            background: rgba(0, 0, 0, 0.03);
-            border-radius: 20px;
-            display: inline-block;
-            margin: 5px auto;
+          text-align: center;
+          color: var(--light-text);
+          margin-bottom: 10px;
+          font-size: 0.95rem;
+          padding: 4px 10px;
+          background: rgba(0, 0, 0, 0.03);
+          border-radius: 20px;
+          display: inline-block;
+          margin: 5px auto;
         }
-        
+
         .price-container {
-            display: flex;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+
+        .price-description {
+          font-size: 1rem;
+          color: var(--accent-color);
+          text-align: center;
+          margin: 15px 0 25px;
+          font-weight: 500;
+        }
+
+        .feature-list {
+          list-style-type: none;
+          padding: 0;
+          margin: 0 0 25px;
+          flex-grow: 1;
+        }
+
+        .feature-list li {
+          margin-bottom: 12px;
+          padding-left: 28px;
+          position: relative;
+          font-size: 0.95rem;
+        }
+
+        .feature-list li:before {
+          content: "✓";
+          position: absolute;
+          left: 0;
+          color: #27ae60;
+          font-weight: bold;
+          background: rgba(39, 174, 96, 0.1);
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+        }
+
+        .pricing-card.popular .feature-list li:before {
+          color: var(--secondary-color);
+          background: rgba(218, 165, 32, 0.1);
+        }
+
+        .service-price {
+          display: flex;
+          justify-content: space-between;
+          font-size: 0.95rem;
+          margin-bottom: 12px;
+          padding-bottom: 12px;
+          border-bottom: 1px dashed var(--border-color);
+        }
+
+        .service-price:last-child {
+          border-bottom: none;
+        }
+
+        .service-price .price-tag {
+          color: var(--primary-color);
+          font-weight: 500;
+        }
+
+        .footer-text {
+          text-align: center;
+          margin-top: 40px;
+          font-size: 0.9rem;
+          color: #777;
+        }
+
+        @media (max-width: 1000px) {
+          .pricing-container {
             flex-direction: column;
             align-items: center;
-            margin-bottom: 20px;
+          }
+
+          .pricing-card {
+            width: 100%;
+            max-width: 450px;
+            margin-bottom: 30px;
+          }
+
+          .pricing-card.popular {
+            transform: scale(1);
+            order: -1;
+          }
+
+          .pricing-card.popular:hover {
+            transform: translateY(-5px);
+          }
         }
-        
-        .price-description {
-            font-size: 1rem;
-            color: var(--accent-color);
-            text-align: center;
-            margin: 15px 0 25px;
-            font-weight: 500;
-        }
-        
-        .feature-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0 0 25px;
-            flex-grow: 1;
-        }
-        
-        .feature-list li {
-            margin-bottom: 12px;
-            padding-left: 28px;
-            position: relative;
-            font-size: 0.95rem;
-        }
-        
-        .feature-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-            font-weight: bold;
-            background: rgba(39, 174, 96, 0.1);
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-        }
-        
-        .pricing-card.popular .feature-list li:before {
-            color: var(--secondary-color);
-            background: rgba(218, 165, 32, 0.1);
-        }
-        
-        .service-price {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-            padding-bottom: 12px;
-            border-bottom: 1px dashed var(--border-color);
-        }
-        
-        .service-price:last-child {
-            border-bottom: none;
-        }
-        
-        .service-price .price-tag {
-            color: var(--primary-color);
-            font-weight: 500;
-        }
-        
-        .footer-text {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: #777;
-        }
-        
-        @media (max-width: 1000px) {
-            .pricing-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .pricing-card {
-                width: 100%;
-                max-width: 450px;
-                margin-bottom: 30px;
-            }
-            
-            .pricing-card.popular {
-                transform: scale(1);
-                order: -1;
-            }
-            
-            .pricing-card.popular:hover {
-                transform: translateY(-5px);
-            }
-        }
-        
+
         .apply-option {
-            position: relative;
-            padding-left: 22px;
-            transition: all 0.3s ease;
+          position: relative;
+          padding-left: 22px;
+          transition: all 0.3s ease;
         }
-        
+
         .apply-option:before {
-            content: "▶";
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-size: 0.8rem;
+          content: "▶";
+          position: absolute;
+          left: 0;
+          color: var(--primary-color);
+          font-size: 0.8rem;
         }
-        
+
         .apply-option:hover {
-            transform: translateX(3px);
+          transform: translateX(3px);
         }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>バンクオブジョージア<br>口座トラブルサポートサービス</h1>
-    
+
     <div class="intro-text">
-        <p>本サービスは、バンクオブジョージアの銀行口座開設後のサポートサービスです。</p>
-        <p>銀行口座開設サポートとは全く異なるサービスです。</p>
-        <p>低価格で安心したサービス提供のため、日本語が出来るジョージア人スタッフが【日本語】で対応します。</p>
+      <p>本サービスは、バンクオブジョージアの銀行口座開設後のサポートサービスです。</p>
+      <p>銀行口座開設サポートとは全く異なるサービスです。</p>
+      <p>低価格で安心したサービス提供のため、日本語が出来るジョージア人スタッフが【日本語】で対応します。</p>
     </div>
 
     <div class="section">
-        <h2>サポートプラン</h2>
-        
-        <div class="pricing-container">
-            <!-- スタンダードプラン -->
-            <div class="pricing-card standard">
-                <h3>スタンダードプラン</h3>
-                <div class="price-container">
-                    <div class="price"><span class="currency"></span>$1200</div>
-                    <div class="price-detail">(VAT18%込み)</div>
-                </div>
-                
-                <ul class="feature-list">
-                    <li>モバイルバンキングのユーザID、PASSWORDの再発行</li>
-                    <li>デビットカードのPINの再発行</li>
-                    <li>口座情報更新</li>
-                    <li>モバイルバンク操作援助</li>
-                    <li>通訳サービス</li>
-                </ul>
-                
-                <a href="apply.html?plan=standard" class="plan-button">スタンダードプランに申し込む</a>
-            </div>
-            
-            <!-- ゴールドプラン -->
-            <div class="pricing-card popular">
-                <div class="popular-badge"><span>おすすめ</span></div>
-                <h3>ゴールドプラン</h3>
-                <div class="price-container">
-                    <div class="price"><span class="currency"></span>$2000</div>
-                    <div class="price-detail">(VAT18%込み)</div>
-                </div>
-                <ul class="feature-list">
-                    <li>ユーザID/PASSWORDの再発行</li>
-                    <li>モバイルバンキングのロック解除</li>
-                    <li>モバイルバンキング操作援助</li>
-                    <li>デビットカードPIN再発行</li>
-                    <li>デビットカードのロック解除</li>
-                    <li>個人情報の更新</li>
-                    <li>口座情報更新</li>
-                    <li>通訳サービス</li>
-                </ul>
-                <a href="apply.html?plan=gold" class="plan-button">ゴールドプランに申し込む</a>
-            </div>
-            
-            <!-- 一般サポート -->
-            <div class="pricing-card general">
-                <h3>一般サポート</h3>
-                <div class="price-container">
-                    <div class="price"><span class="currency"></span>個別利用料<span style="font-size: 1rem; margin-left: 5px; align-self: flex-end;"></span></div>
-                    <div class="price-detail">(VAT18%込み)</div>
-                </div>
-                
-                <div style="flex-grow: 1;">
-                    <div class="service-price">
-                        <span>ユーザID/PASSWORDの再発行</span>
-                        <span class="price-tag">$500</span>
-                    </div>
-                    <div class="service-price">
-                    	<span>モバイルバンキングのロック解除</span>
-                    	<span class="price-tag">$600</span>
-                    </div>
-                    <div class="service-price">
-                    	<span>モバイルバンキング操作援助</span>
-                    	<span class="price-tag">$400</span>
-                    </div>
-                    <div class="service-price">
-                        <span>デビットカードPIN再発行</span>
-                        <span class="price-tag">$100</span>
-                    </div>
-                    <div class="service-price">
-                        <span>デビットカードのロック解除</span>
-                        <span class="price-tag">$600</span>
-                    </div>
-                    <div class="service-price">
-                        <span>個人情報の更新</span>
-                        <span class="price-tag">$500</span>
-                    </div>
-                    <div class="service-price">
-                        <span>口座のロック解除</span>
-                        <span class="price-tag">$700</span>
-                    </div>
-                    <div class="service-price">
-                    	<span>通訳サービス </span>
-                    	<span class="price-tag">$200</span>
-                    </div>
-                </div>
-                
-                <a href="apply.html?plan=single" class="plan-button">一般サポートに申し込む</a>
-            </div>
+      <h2>サポートプラン</h2>
+
+      <div class="pricing-container">
+        <!-- スタンダードプラン -->
+        <div class="pricing-card standard">
+          <h3>スタンダードプラン</h3>
+          <div class="price-container">
+            <div class="price"><span class="currency"></span>$120/月</div>
+            <div class="price-detail">(VAT18%込み)</div>
+          </div>
+
+          <ul class="feature-list">
+            <li>モバイルバンキングのユーザID、PASSWORDの再発行</li>
+            <li>デビットカードのPINの再発行</li>
+            <li>口座情報更新</li>
+            <li>モバイルバンク操作援助</li>
+            <li>通訳サービス</li>
+          </ul>
+
+          <a href="apply.html?plan=standard" class="plan-button">スタンダードプランに申し込む</a>
         </div>
-        
-        <div class="note center-text">
-            <p>※注意事項:</p>
-            <p>バンクオブジョージアの口座と関係ないもの(運用相談、税務相談等)は含まれません。</p>
-            <p>また、代理委任状を要する日本国内の手続きを行う行政書士をご紹介しますが別料金になります。</p>
+
+        <!-- ゴールドプラン -->
+        <div class="pricing-card popular">
+          <div class="popular-badge"><span>おすすめ</span></div>
+          <h3>ゴールドプラン</h3>
+          <div class="price-container">
+            <div class="price"><span class="currency"></span>$350/月</div>
+            <div class="price-detail">(VAT18%込み)</div>
+          </div>
+          <ul class="feature-list">
+            <li>ユーザID/PASSWORDの再発行</li>
+            <li>モバイルバンキングのロック解除</li>
+            <li>モバイルバンキング操作援助</li>
+            <li>デビットカードPIN再発行</li>
+            <li>デビットカードのロック解除</li>
+            <li>個人情報の更新</li>
+            <li>口座情報更新</li>
+            <li>通訳サービス</li>
+          </ul>
+          <a href="apply.html?plan=gold" class="plan-button">ゴールドプランに申し込む</a>
         </div>
+
+        <!-- 一般サポート -->
+        <div class="pricing-card general">
+          <h3>一般サポート</h3>
+          <div class="price-container">
+            <div class="price"><span class="currency"></span>個別料金<span style="font-size: 1rem; margin-left: 5px; align-self: flex-end;"></span></div>
+            <div class="price-detail">(VAT18%込み)</div>
+          </div>
+
+          <div style="flex-grow: 1;">
+            <div class="service-price">
+              <span>ユーザID/PASSWORDの再発行</span>
+              <span class="price-tag">$500</span>
+            </div>
+            <div class="service-price">
+              <span>モバイルバンキングのロック解除</span>
+              <span class="price-tag">$500</span>
+            </div>
+            <div class="service-price">
+              <span>個人情報の更新</span>
+              <span class="price-tag">$300</span>
+            </div> 
+            <div class="service-price">
+              <span>通訳サービス </span>
+              <span class="price-tag">$200</span>
+            </div>
+            <div class="service-price">
+              <span>デビットカードPIN再発行</span>
+              <span class="price-tag">$100</span>
+            </div>
+            <div class="service-price">
+              <span>デビットカードのロック解除</span>
+              <span class="price-tag">$100</span>
+            </div>
+          </div>
+
+          <a href="apply.html?plan=single" class="plan-button">一般サポートに申し込む</a>
+        </div>
+      </div>
+
+      <div class="note center-text">
+        <p>※注意事項:</p>
+        <p>バンクオブジョージアの口座と関係ないもの(運用相談、税務相談等)は含まれません。</p>
+        <p>また、代理委任状を要する日本国内の手続きを行う行政書士をご紹介しますが別料金になります。</p>
+      </div>
     </div>
-    
+
     <div class="apply-section">
-        <h3 style="color: var(--primary-color); margin-bottom: 20px;">お申し込みはこちら</h3>
-        
-        <p style="margin-bottom: 15px;">サポートプランのお申し込みは簡単です。申し込みフォームに必要事項をご記入いただくだけで、最適なサポートをご提供いたします。</p>
-        
-        <div style="display: flex; justify-content: center; margin: 25px 0;">
-            <div style="text-align: center; margin: 0 20px;">
-                <div style="font-size: 24px; color: var(--primary-color); margin-bottom: 10px;">➊</div>
-                <p>フォームに<br>ご記入</p>
-            </div>
-            <div style="color: var(--light-text); margin-top: 15px;">→</div>
-            <div style="text-align: center; margin: 0 20px;">
-                <div style="font-size: 24px; color: var(--primary-color); margin-bottom: 10px;">➋</div>
-                <p>内容確認と<br>お支払い</p>
-            </div>
-            <div style="color: var(--light-text); margin-top: 15px;">→</div>
-            <div style="text-align: center; margin: 0 20px;">
-                <div style="font-size: 24px; color: var(--primary-color); margin-bottom: 10px;">➌</div>
-                <p>サポート<br>開始</p>
-            </div>
+      <h3 style="color: var(--primary-color); margin-bottom: 20px;">お申し込みはこちら</h3>
+
+      <p style="margin-bottom: 15px;">サポートプランのお申し込みは簡単です。申し込みフォームに必要事項をご記入いただくだけで、最適なサポートをご提供いたします。</p>
+
+      <div style="display: flex; justify-content: center; margin: 25px 0;">
+        <div style="text-align: center; margin: 0 20px;">
+          <div style="font-size: 24px; color: var(--primary-color); margin-bottom: 10px;">➊</div>
+          <p>フォームに<br>ご記入</p>
         </div>
-        
-        <a href="apply.html" class="button">申し込む</a>
-        
-        <p style="margin-top: 30px;">※お申し込みの前に必ず<a href="terms.html" style="color: var(--primary-color);">利用規約</a>と<a href="privacy.html" style="color: var(--primary-color);">プライバシーポリシー</a>をご確認ください。</p>
+        <div style="color: var(--light-text); margin-top: 15px;">→</div>
+        <div style="text-align: center; margin: 0 20px;">
+          <div style="font-size: 24px; color: var(--primary-color); margin-bottom: 10px;">➋</div>
+          <p>内容確認と<br>お支払い</p>
+        </div>
+        <div style="color: var(--light-text); margin-top: 15px;">→</div>
+        <div style="text-align: center; margin: 0 20px;">
+          <div style="font-size: 24px; color: var(--primary-color); margin-bottom: 10px;">➌</div>
+          <p>サポート<br>開始</p>
+        </div>
+      </div>
+
+      <a href="apply.html" class="button">申し込む</a>
+
+      <p style="margin-top: 30px;">※お申し込みの前に必ず<a href="terms.html" style="color: var(--primary-color);">利用規約</a>と<a href="privacy.html" style="color: var(--primary-color);">プライバシーポリシー</a>をご確認ください。</p>
     </div>
-    
+
     <div class="footer-text">
-        <p style="color: #777;"> 2025 バンクオブジョージア口座トラブルサポートサービス</p>
-        <p style="margin-top: 10px; font-size: 0.9em;">
-            <a href="terms.html" style="color: #777; margin-right: 15px; text-decoration: none;">利用規約</a>
-            <a href="privacy.html" style="color: #777; text-decoration: none;">プライバシーポリシー</a>
-        </p>
+      <p style="color: #777;"> 2025 バンクオブジョージア口座トラブルサポートサービス</p>
+      <p style="margin-top: 10px; font-size: 0.9em;">
+      <a href="terms.html" style="color: #777; margin-right: 15px; text-decoration: none;">利用規約</a>
+      <a href="privacy.html" style="color: #777; text-decoration: none;">プライバシーポリシー</a>
+      </p>
     </div>
-</body>
+  </body>
 </html>
