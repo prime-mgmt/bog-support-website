@@ -410,9 +410,150 @@
         .apply-option:hover {
           transform: translateX(3px);
         }
+
+        /* Navigation Header Styles */
+        .nav-header {
+          background: white;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          margin: -40px -20px 40px -20px;
+          padding: 0 20px;
+        }
+
+        .nav-container {
+          max-width: 1100px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 0;
+        }
+
+        .nav-logo {
+          font-size: 1.3rem;
+          font-weight: 700;
+          color: var(--primary-color);
+          text-decoration: none;
+        }
+
+        .nav-menu {
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          gap: 30px;
+        }
+
+        .nav-menu li a {
+          text-decoration: none;
+          color: var(--dark-text);
+          font-weight: 500;
+          padding: 8px 16px;
+          border-radius: 6px;
+          transition: all 0.3s ease;
+          font-size: 0.95rem;
+        }
+
+        .nav-menu li a:hover {
+          background: var(--light-bg);
+          color: var(--primary-color);
+        }
+
+        .nav-menu li a.active {
+          background: var(--primary-color);
+          color: white;
+        }
+
+        /* Mobile Navigation */
+        .nav-toggle {
+          display: none;
+          flex-direction: column;
+          cursor: pointer;
+          padding: 5px;
+        }
+
+        .nav-toggle span {
+          width: 25px;
+          height: 3px;
+          background: var(--primary-color);
+          margin: 3px 0;
+          transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+          .nav-menu {
+            position: fixed;
+            top: 70px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background: white;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0;
+            transition: left 0.3s ease;
+            padding-top: 50px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          }
+
+          .nav-menu.active {
+            left: 0;
+          }
+
+          .nav-menu li {
+            width: 100%;
+            text-align: center;
+          }
+
+          .nav-menu li a {
+            display: block;
+            padding: 20px;
+            width: 100%;
+            border-radius: 0;
+            border-bottom: 1px solid var(--border-color);
+          }
+
+          .nav-toggle {
+            display: flex;
+          }
+
+          .nav-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+          }
+
+          .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+          }
+
+          .nav-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+          }
+        }
     </style>
   </head>
   <body>
+    <!-- Navigation Header -->
+    <nav class="nav-header">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">BOG サポート</a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="active">ホーム</a></li>
+          <li><a href="services.html">サービス</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+          <li><a href="terms.html">利用規約</a></li>
+          <li><a href="privacy.html">プライバシーポリシー</a></li>
+        </ul>
+        <div class="nav-toggle" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
     <h1>バンクオブジョージア<br>口座トラブルサポートサービス</h1>
 
     <div class="intro-text">
@@ -421,7 +562,7 @@
       <p>低価格で安心したサービス提供のため、日本語が出来るジョージア人スタッフが【日本語】で対応します。</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="services">
       <h2>サポートプラン</h2>
 
       <div class="pricing-container">
@@ -497,6 +638,18 @@
               <span>銀行口座開設</span>
               <span class="price-tag">$500</span>
             </div>
+            <div class="service-price">
+              <span>定期預金口座開設サポート</span>
+              <span class="price-tag">$110</span>
+            </div>
+            <div class="service-price">
+              <span>ワイズ送金サポート</span>
+              <span class="price-tag">$110</span>
+            </div>
+            <div class="service-price">
+              <span>送金〜定期預金までセット</span>
+              <span class="price-tag">$200</span>
+            </div>
           </div>
 
           <a href="apply.html?plan=single" class="plan-button">一般サポートに申し込む</a>
@@ -538,6 +691,16 @@
       <p style="margin-top: 30px;">※お申し込みの前に必ず<a href="terms.html" style="color: var(--primary-color);">利用規約</a>と<a href="privacy.html" style="color: var(--primary-color);">プライバシーポリシー</a>をご確認ください。</p>
     </div>
 
+    <!-- Contact Section -->
+    <div class="section" id="contact">
+      <h2>お問い合わせ</h2>
+      <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <p style="margin-bottom: 20px;">サービスに関するご質問やお問い合わせは、お申し込みフォームからお気軽にご連絡ください。</p>
+        <p style="margin-bottom: 30px;">専門スタッフが迅速にご対応いたします。</p>
+        <a href="apply.html" class="button" style="background: linear-gradient(135deg, var(--secondary-color), #e6b800);">お問い合わせフォーム</a>
+      </div>
+    </div>
+
     <div class="footer-text">
       <p style="color: #777;"> 2025 バンクオブジョージア口座トラブルサポートサービス</p>
       <p style="margin-top: 10px; font-size: 0.9em;">
@@ -546,5 +709,39 @@
       <a href = junpou.html style="color: #777; margin-left: 13px; text-decoration: none">特定商取引法</a>
       </p>
     </div>
+
+    <script>
+      function toggleMenu() {
+        const navMenu = document.querySelector('.nav-menu');
+        const navToggle = document.querySelector('.nav-toggle');
+        
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      }
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          const navMenu = document.querySelector('.nav-menu');
+          const navToggle = document.querySelector('.nav-toggle');
+          navMenu.classList.remove('active');
+          navToggle.classList.remove('active');
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    </script>
   </body>
 </html>

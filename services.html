@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>サービス詳細 | バンクオブジョージア サポート</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #f59e0b;
+  --accent-color: #dc2626;
+  --light-bg: #f8fafc;
+  --dark-text: #1e293b;
+  --light-text: #64748b;
+  --border-color: #e2e8f0;
+  --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --service-bg: #ffffff;
+  --service-hover: #f1f5f9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body { 
+  font-family: 'Noto Sans JP', sans-serif;
+  padding: 40px 20px; 
+  max-width: 1100px; 
+  margin: auto; 
+  line-height: 1.8;
+  color: var(--dark-text);
+  background: var(--light-bg);
+}
+
+h1, h2, h3 { 
+  color: var(--primary-color); 
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.8rem;
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 2rem;
+}
+
+h2:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.intro-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.section {
+  margin: 60px 0;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.service-category {
+  margin-bottom: 50px;
+}
+
+.service-list {
+  display: grid;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.service-item {
+  background: var(--service-bg);
+  padding: 28px;
+  border-radius: 12px;
+  border-left: 5px solid var(--primary-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.service-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow);
+  background: var(--service-hover);
+}
+
+.service-item.gold {
+  border-left-color: var(--secondary-color);
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+}
+
+.service-item.gold:hover {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+}
+
+.service-item.general {
+  border-left-color: #6b7280;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+.service-item.general:hover {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-item.gold .service-title {
+  color: #d97706;
+}
+
+.service-item.general .service-title {
+  color: #4b5563;
+}
+
+.service-price {
+  font-weight: 700;
+  color: var(--accent-color);
+  font-size: 1.1rem;
+}
+
+.service-description {
+  color: var(--light-text);
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.service-details {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  margin-top: 18px;
+}
+
+.service-details h4 {
+  color: var(--primary-color);
+  font-size: 1rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.service-details ul {
+  margin-left: 20px;
+  color: var(--light-text);
+}
+
+.service-details li {
+  margin-bottom: 5px;
+}
+
+.plan-header {
+  text-align: center;
+  padding: 32px 20px;
+  background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+  color: white;
+  border-radius: 16px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.25);
+}
+
+.plan-header h2 {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+}
+
+.plan-header p {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.plan-header .plan-price {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.plan-header.gold {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  box-shadow: 0 8px 25px rgba(234, 179, 8, 0.25);
+}
+
+.plan-header.general {
+  background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+  box-shadow: 0 8px 25px rgba(75, 85, 99, 0.25);
+}
+
+.plan-price {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.cta-section {
+  text-align: center;
+  margin-top: 50px;
+  padding: 40px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.button {
+  display: inline-block;
+  margin: 15px 10px;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, var(--primary-color), #0066cc);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 83, 160, 0.3);
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 83, 160, 0.4);
+}
+
+.button.secondary {
+  background: linear-gradient(135deg, var(--secondary-color), #e6b800);
+  box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+}
+
+.button.secondary:hover {
+  box-shadow: 0 6px 20px rgba(218, 165, 32, 0.4);
+}
+
+/* Navigation Header Styles */
+.nav-header {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin: -40px -20px 40px -20px;
+  padding: 0 20px;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.nav-logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: var(--dark-text);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.nav-menu li a:hover {
+  background: var(--light-bg);
+  color: var(--primary-color);
+}
+
+.nav-menu li a.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Mobile Navigation */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.nav-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--primary-color);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: white;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
+    transition: left 0.3s ease;
+    padding-top: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-menu li a {
+    display: block;
+    padding: 20px;
+    width: 100%;
+    border-radius: 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+.footer-text {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #777;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="nav-header">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">BOG サポート</a>
+        <ul class="nav-menu">
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="services.html" class="active">サービス</a></li>
+          <li><a href="index.html#contact">お問い合わせ</a></li>
+          <li><a href="terms.html">利用規約</a></li>
+          <li><a href="privacy.html">プライバシーポリシー</a></li>
+        </ul>
+        <div class="nav-toggle" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <h1>サービス詳細</h1>
+
+    <div class="intro-text">
+        <p>バンクオブジョージアの口座トラブルサポートサービスの詳細をご確認いただけます。</p>
+        <p>お客様のニーズに合わせて最適なプランをお選びください。</p>
+    </div>
+
+    <!-- スタンダードプラン -->
+    <div class="section">
+        <div class="service-category">
+            <div class="plan-header">
+                <h2>スタンダードプラン</h2>
+                <div class="plan-price">$250/月 (税抜き)</div>
+                <p>基本的な口座トラブルに対応</p>
+            </div>
+
+            <div class="service-list">
+                <div class="service-item">
+                    <div class="service-title">
+                        <span>デビットカードのロック解除</span>
+                    </div>
+                    <div class="service-description">
+                        デビットカードがロックされてしまった場合の解除手続きを代行いたします。
+                    </div>
+                    <div class="service-details">
+                        <h4>サービス内容:</h4>
+                        <ul>
+                            <li>銀行への連絡・確認</li>
+                            <li>ロック解除手続きの代行</li>
+                            <li>解除完了までのサポート</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-title">
+                        <span>デビットカードのPINの再発行</span>
+                    </div>
+                    <div class="service-description">
+                        PINコードを忘れてしまった、または変更したい場合の再発行手続きをサポートします。
+                    </div>
+                    <div class="service-details">
+                        <h4>サービス内容:</h4>
+                        <ul>
+                            <li>PIN再発行申請の代行</li>
+                            <li>必要書類の準備サポート</li>
+                            <li>新しいPIN受け取りまでの案内</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-title">
+                        <span>口座情報更新</span>
+                    </div>
+                    <div class="service-description">
+                        住所変更、電話番号変更など、基本的な口座情報の更新手続きをサポートします。
+                    </div>
+                    <div class="service-details">
+                        <h4>サービス内容:</h4>
+                        <ul>
+                            <li>情報変更申請の代行</li>
+                            <li>必要書類の確認・準備</li>
+                            <li>変更手続きの進行管理</li>
+                            <li>完了確認とサポート</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-title">
+                        <span>モバイルバンク操作援助</span>
+                    </div>
+                    <div class="service-description">
+                        モバイルバンキングアプリの基本的な操作方法をサポートします。
+                    </div>
+                    <div class="service-details">
+                        <h4>サービス内容:</h4>
+                        <ul>
+                            <li>アプリの基本操作説明</li>
+                            <li>送金・振込方法の案内</li>
+                            <li>残高確認・履歴確認方法</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ゴールドプラン -->
+    <div class="section">
+        <div class="service-category">
+            <div class="plan-header gold">
+                <h2>ゴールドプラン</h2>
+                <div class="plan-price">$400/月 (税抜き)</div>
+                <p>包括的なサポートサービス（おすすめ）</p>
+            </div>
+
+            <div class="service-list">
+                <div class="service-item gold">
+                    <div class="service-title">
+                        <span>ユーザID/PASSWORDの再発行</span>
+                    </div>
+                    <div class="service-description">
+                        オンラインバンキングのログイン情報を忘れてしまった場合の再発行手続きを代行します。
+                    </div>
+                    <div class="service-details">
+                        <h4>サービス内容:</h4>
+                        <ul>
+                            <li>本人確認書類の準備サポート</li>
+                            <li>解除手続きの完了確認</li>
+                            <li>新しいログイン情報の受け取り案内</li>
+                            <li>初回ログイン時のサポート</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item gold">
+                    <div class="service-title">
+                        <span>モバイルバンキングのロック解除</span>
+                    </div>
+                    <div class="service-description">
+                        モバイルバンキングのロック解除手続きを代行いたします。
+                    </div>
+                </div>
+
+                <div class="service-item gold">
+                    <div class="service-title">
+                        <span>モバイルバンキング操作援助</span>
+                    </div>
+                    <div class="service-description">
+                        高度なモバイルバンキング機能の使い方を詳しくサポートします。
+                    </div>
+                    <div class="service-details">
+                        <h4>サービス内容:</h4>
+                        <ul>
+                            <li>全機能の詳細説明</li>
+                            <li>定期預金・投資商品の操作</li>
+                            <li>国際送金の設定・実行</li>
+                            <li>セキュリティ設定の最適化</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item gold">
+                    <div class="service-title">
+                        <span>デビットカードPIN再発行</span>
+                    </div>
+                    <div class="service-description">
+                        デビットカードのPINコード再発行を迅速にサポートします。
+                    </div>
+                </div>
+
+                <div class="service-item gold">
+                    <div class="service-title">
+                        <span>デビットカードのロック解除</span>
+                    </div>
+                    <div class="service-description">
+                        デビットカードのロック解除を優先的に処理します。
+                    </div>
+                </div>
+
+                <div class="service-item gold">
+                    <div class="service-title">
+                        <span>個人情報の更新</span>
+                    </div>
+                    <div class="service-description">
+                        パスポート更新、住所変更など重要な個人情報の更新手続きを包括的にサポートします。
+                    </div>
+                    <div class="service-details">
+                        <h4>サービス内容:</h4>
+                        <ul>
+                            <li>必要書類の詳細案内</li>
+                            <li>書類翻訳のサポート</li>
+                            <li>更新手続きの完全代行</li>
+                            <li>承認まで完全サポート</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item gold">
+                    <div class="service-title">
+                        <span>口座情報更新</span>
+                    </div>
+                    <div class="service-description">
+                        口座情報の更新手続きを代行いたします。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 一般サポート -->
+    <div class="section">
+        <div class="service-category">
+            <div class="plan-header general">
+                <h2>一般サポート</h2>
+                <div class="plan-price">個別料金 (税抜き)</div>
+                <p>必要なサービスのみ選択可能</p>
+            </div>
+
+            <div class="service-list">
+                <div class="service-item general">
+                    <div class="service-title">
+                        <span>ユーザID/PASSWORDの再発行</span>
+                        <span class="service-price">$350</span>
+                    </div>
+                    <div class="service-description">
+                        オンラインバンキングのログイン情報再発行を代行いたします。
+                    </div>
+                </div>
+
+                <div class="service-item general">
+                    <div class="service-title">
+                        <span>モバイルバンキングのロック解除</span>
+                        <span class="service-price">$350</span>
+                    </div>
+                    <div class="service-description">
+                        モバイルバンキングのロック解除手続きを代行いたします。
+                    </div>
+                </div>
+
+                <div class="service-item general">
+                    <div class="service-title">
+                        <span>個人情報の更新</span>
+                        <span class="service-price">$250</span>
+                    </div>
+                    <div class="service-description">
+                        パスポート情報、住所などの個人情報更新を代行いたします。
+                    </div>
+                </div>
+
+                <div class="service-item general">
+                    <div class="service-title">
+                        <span>デビットカードPIN再発行</span>
+                        <span class="service-price">$100</span>
+                    </div>
+                    <div class="service-description">
+                        デビットカードのPINコード再発行手続きを代行します。
+                    </div>
+                </div>
+
+                <div class="service-item general">
+                    <div class="service-title">
+                        <span>デビットカードのロック解除</span>
+                        <span class="service-price">$100</span>
+                    </div>
+                    <div class="service-description">
+                        ロックされたデビットカードの解除手続きを行います。
+                    </div>
+                </div>
+
+                <div class="service-item general">
+                    <div class="service-title">
+                        <span>銀行口座開設</span>
+                        <span class="service-price">$500</span>
+                    </div>
+                    <div class="service-description">
+                        新規銀行口座開設の全手続きをサポートします。
+                    </div>
+                    <div class="service-details">
+                        <h4>サービス内容:</h4>
+                        <ul>
+                            <li>必要書類の準備案内</li>
+                            <li>銀行での手続き同行</li>
+                            <li>口座開設完了までのサポート</li>
+                            <li>初回設定のサポート</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item general">
+                    <div class="service-title">
+                        <span>定期預金口座開設サポート</span>
+                        <span class="service-price">$110</span>
+                    </div>
+                    <div class="service-description">
+                        Deposit accountを1人で開設するのが不安な方向けのZoomサポートです。
+                    </div>
+                    <div class="service-details">
+                        <h4>サービス内容:</h4>
+                        <ul>
+                            <li>Zoomで一緒に口座開設作業</li>
+                            <li>慣れて今後は1人で作れるまで指導</li>
+                            <li>1時間限定（Deposit以外の質問禁止）</li>
+                            <li>送金の相談は別途サービス</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item general">
+                    <div class="service-title">
+                        <span>ワイズ送金サポート</span>
+                        <span class="service-price">$110</span>
+                    </div>
+                    <div class="service-description">
+                        Wise（旧TransferWise）を使った国際送金の設定と実行をサポートします。
+                    </div>
+                    <div class="service-details">
+                        <h4>サービス内容:</h4>
+                        <ul>
+                            <li>Wiseアカウント作成サポート</li>
+                            <li>銀行口座との連携設定</li>
+                            <li>送金手続きの実行サポート</li>
+                            <li>手数料最適化の説明</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item general">
+                    <div class="service-title">
+                        <span>送金〜定期預金セットサポート</span>
+                        <span class="service-price">$200</span>
+                    </div>
+                    <div class="service-description">
+                        国際送金から定期預金開設までの一連の流れを包括的にサポートします。
+                    </div>
+                    <div class="service-details">
+                        <h4>サービス内容:</h4>
+                        <ul>
+                            <li>Wise送金の完全サポート</li>
+                            <li>着金確認とサポート</li>
+                            <li>定期預金口座開設</li>
+                            <li>資金移動と預金実行</li>
+                            <li>全工程の進行管理</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <h2>お申し込みはこちら</h2>
+        <p style="margin-bottom: 30px;">お客様のニーズに最適なプランを選択して、今すぐお申し込みください。</p>
+        
+        <a href="apply.html?plan=standard" class="button">スタンダードプラン</a>
+        <a href="apply.html?plan=gold" class="button secondary">ゴールドプラン</a>
+        <a href="apply.html?plan=single" class="button">一般サポート</a>
+        
+        <p style="margin-top: 30px; font-size: 0.9rem; color: #777;">
+            ※別途、付加価値税(VAT)18%がかかります。<br>
+            ※お申し込みの前に<a href="terms.html" style="color: var(--primary-color);">利用規約</a>をご確認ください。
+        </p>
+    </div>
+
+    <div class="footer-text">
+        <p style="color: #777;"> 2025 バンクオブジョージア口座トラブルサポートサービス</p>
+        <p style="margin-top: 10px; font-size: 0.9em;">
+        <a href="terms.html" style="color: #777; margin-right: 15px; text-decoration: none;">利用規約</a>
+        <a href="privacy.html" style="color: #777; text-decoration: none;">プライバシーポリシー</a>
+        <a href="junpou.html" style="color: #777; margin-left: 13px; text-decoration: none">特定商取引法</a>
+        </p>
+    </div>
+
+    <script>
+      function toggleMenu() {
+        const navMenu = document.querySelector('.nav-menu');
+        const navToggle = document.querySelector('.nav-toggle');
+        
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      }
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          const navMenu = document.querySelector('.nav-menu');
+          const navToggle = document.querySelector('.nav-toggle');
+          navMenu.classList.remove('active');
+          navToggle.classList.remove('active');
+        });
+      });
+    </script>
+</body>
+</html>
