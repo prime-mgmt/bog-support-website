@@ -532,6 +532,29 @@
             transform: rotate(45deg) translate(-5px, -6px);
           }
         }
+
+        /* Service Link Styles */
+        .service-link {
+          color: inherit;
+          text-decoration: none;
+          position: relative;
+          transition: color 0.3s ease;
+        }
+
+        .service-link:hover {
+          color: #1e40af;
+          text-decoration: underline;
+          text-decoration-color: #1e40af;
+          text-underline-offset: 3px;
+        }
+
+        .feature-list .service-link:hover {
+          color: #1e40af;
+        }
+
+        .service-price .service-link:hover {
+          color: #1e40af;
+        }
     </style>
   </head>
   <body>
@@ -575,10 +598,10 @@
           </div>
 
           <ul class="feature-list">
-            <li>デビットカードのロック解除</li>
-            <li>デビットカードのPINの再発行</li>
-            <li>口座情報更新</li>
-            <li>モバイルバンク操作援助</li>
+            <li><a href="services.html#debit-card-unlock" class="service-link">デビットカードのロック解除</a></li>
+            <li><a href="services.html#debit-pin-reissue" class="service-link">デビットカードのPINの再発行</a></li>
+            <li><a href="services.html#account-info-update" class="service-link">口座情報更新</a></li>
+            <li><a href="services.html#mobile-bank-assistance" class="service-link">モバイルバンク操作援助</a></li>
           </ul>
 
           <a href="apply.html?plan=standard" class="plan-button">スタンダードプランに申し込む</a>
@@ -593,13 +616,13 @@
             <div class="price-detail">(税抜き)</div>
           </div>
           <ul class="feature-list">
-            <li>ユーザID/PASSWORDの再発行</li>
-            <li>モバイルバンキングのロック解除</li>
-            <li>モバイルバンキング操作援助</li>
-            <li>デビットカードPIN再発行</li>
-            <li>デビットカードのロック解除</li>
-            <li>個人情報の更新</li>
-            <li>口座情報更新</li>
+            <li><a href="services.html#user-id-password-reissue" class="service-link">ユーザID/PASSWORDの再発行</a></li>
+            <li><a href="services.html#mobile-banking-unlock" class="service-link">モバイルバンキングのロック解除</a></li>
+            <li><a href="services.html#mobile-banking-assistance" class="service-link">モバイルバンキング操作援助</a></li>
+            <li><a href="services.html#debit-pin-reissue" class="service-link">デビットカードPIN再発行</a></li>
+            <li><a href="services.html#debit-card-unlock" class="service-link">デビットカードのロック解除</a></li>
+            <li><a href="services.html#personal-info-update" class="service-link">個人情報の更新</a></li>
+            <li><a href="services.html#account-info-update" class="service-link">口座情報更新</a></li>
 
           </ul>
           <a href="apply.html?plan=gold" class="plan-button">ゴールドプランに申し込む</a>
@@ -615,39 +638,39 @@
 
           <div style="flex-grow: 1;">
             <div class="service-price">
-              <span>ユーザID/PASSWORDの再発行</span>
+              <span><a href="services.html#user-id-password-reissue" class="service-link">ユーザID/PASSWORDの再発行</a></span>
               <span class="price-tag">$350</span>
             </div>
             <div class="service-price">
-              <span>モバイルバンキングのロック解除</span>
+              <span><a href="services.html#mobile-banking-unlock" class="service-link">モバイルバンキングのロック解除</a></span>
               <span class="price-tag">$350</span>
             </div>
             <div class="service-price">
-              <span>個人情報の更新</span>
+              <span><a href="services.html#personal-info-update" class="service-link">個人情報の更新</a></span>
               <span class="price-tag">$250</span>
             </div> 
             <div class="service-price">
-              <span>デビットカードPIN再発行</span>
+              <span><a href="services.html#debit-pin-reissue" class="service-link">デビットカードPIN再発行</a></span>
               <span class="price-tag">$100</span>
             </div>
             <div class="service-price">
-              <span>デビットカードのロック解除</span>
+              <span><a href="services.html#debit-card-unlock" class="service-link">デビットカードのロック解除</a></span>
               <span class="price-tag">$100</span>
             </div>
             <div class="service-price">
-              <span>銀行口座開設</span>
+              <span><a href="services.html#bank-account-opening" class="service-link">銀行口座開設</a></span>
               <span class="price-tag">$500</span>
             </div>
             <div class="service-price">
-              <span>定期預金口座開設サポート</span>
+              <span><a href="services.html#deposit-account-support" class="service-link">定期預金口座開設サポート</a></span>
               <span class="price-tag">$110</span>
             </div>
             <div class="service-price">
-              <span>ワイズ送金サポート</span>
+              <span><a href="services.html#wise-transfer-support" class="service-link">ワイズ送金サポート</a></span>
               <span class="price-tag">$110</span>
             </div>
             <div class="service-price">
-              <span>送金〜定期預金までセット</span>
+              <span><a href="services.html#transfer-deposit-set" class="service-link">送金〜定期預金セットサポート</a></span>
               <span class="price-tag">$200</span>
             </div>
           </div>
