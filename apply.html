@@ -7,7 +7,7 @@
         body { 
             font-family: sans-serif; 
             padding: 20px; 
-            max-width: 600px; 
+            max-width: 1100px; 
             margin: auto; 
             line-height: 1.8; 
         }
@@ -68,7 +68,7 @@
         }
 
         .nav-container {
-            max-width: 600px;
+            max-width: 1100px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -88,17 +88,17 @@
             list-style: none;
             margin: 0;
             padding: 0;
-            gap: 20px;
+            gap: 30px;
         }
 
         .nav-menu li a {
             text-decoration: none;
             color: #333;
             font-weight: 500;
-            padding: 8px 12px;
+            padding: 8px 16px;
             border-radius: 6px;
             transition: all 0.3s ease;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .nav-menu li a:hover {
@@ -194,15 +194,16 @@
       </div>
     </nav>
 
-    <h1>サポートお申し込みフォーム</h1>
-    
-    <div class="description">
-        <p>下記フォームにご記入の上、送信してください。</p>
-        <p>内容を確認のうえ、スタッフよりご連絡いたします。</p>
-        <p>すべてのプランは一度のお支払いでサポートが受けられます。</p>
-    </div>
-    
-    <form action="/thanks.html" method="POST" data-netlify="true" name="support-application" netlify-honeypot="bot-field" data-netlify-recaptcha="true" id="supportForm">
+    <div style="max-width: 600px; margin: 0 auto;">
+        <h1>サポートお申し込みフォーム</h1>
+        
+        <div class="description">
+            <p>下記フォームにご記入の上、送信してください。</p>
+            <p>内容を確認のうえ、スタッフよりご連絡いたします。</p>
+            <p>すべてのプランは一度のお支払いでサポートが受けられます。</p>
+        </div>
+        
+        <form action="/thanks.html" method="POST" data-netlify="true" name="support-application" netlify-honeypot="bot-field" data-netlify-recaptcha="true" id="supportForm">
         <p class="hidden" style="display: none;">
             <label>Don't fill this out if you're human: <input name="bot-field" /></label>
         </p>
@@ -230,6 +231,7 @@
                 <option value="mobile_unlock">モバイルバンキングのロック解除</option>
                 <option value="pin_change">デビットカードPIN再発行</option>
                 <option value="card_unlock">デビットカードのロック解除</option>
+                <option value="card_activation">カード有効化</option>
                 <option value="info_change">個人情報の更新</option>
                 <option value="account_creation">銀行口座開設</option>
                 <option value="deposit_account_support">定期預金口座開設サポート</option>
@@ -255,9 +257,10 @@
         </div>
         
         <button type="submit">申し込む</button>
-    </form>
-    
-    <a href="index.html" class="back">← トップページに戻る</a>
+        </form>
+        
+        <a href="index.html" class="back">← トップページに戻る</a>
+    </div>
 
     <script>
         // URL パラメータからプランを取得して自動選択する
