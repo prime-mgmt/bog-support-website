@@ -225,7 +225,7 @@
         
         <div class="form-group" id="serviceSelection" style="display: none;">
             <label for="service">依頼内容</label>
-            <select name="service" id="service" required onchange="toggleSelections()">
+            <select name="service" id="service" onchange="toggleSelections()">
                 <option value="">選択してください</option>
                 <option value="credentials">ユーザID/PASSWORDの再発行</option>
                 <option value="mobile_unlock">モバイルバンキングのロック解除</option>
@@ -317,12 +317,18 @@
         function toggleSelections() {
             const planSelect = document.getElementById('plan');
             const serviceSelectionDiv = document.getElementById('serviceSelection');
+            const serviceSelect = document.getElementById('service');
+
+            if (!planSelect || !serviceSelectionDiv || !serviceSelect) return;
             
             // Show/hide service selection based on plan
             if (planSelect.value === 'single') {
                 serviceSelectionDiv.style.display = 'block';
+                serviceSelect.setAttribute('required', 'required');
             } else {
                 serviceSelectionDiv.style.display = 'none';
+                serviceSelect.removeAttribute('required');
+                serviceSelect.value = '';
             }
         }
 
